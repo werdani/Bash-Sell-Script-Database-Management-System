@@ -1,7 +1,8 @@
 #! /bin/bash 
-echo "😎😎😎😎😎😎😎😎😎😎😎😎😎😎"
-echo "😎 welcom in my database  😎"
-echo "😎😎😎😎😎😎😎😎😎😎😎😎😎😎"
+PS3="enter your choice ▶ "
+echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖"
+echo "| welcom in my database   |"
+echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖"
 
 function creatdb {
 read -p "enter dbname : " name 
@@ -16,8 +17,29 @@ fi
 }
 
 function listdb {
+echo "Your Database : "
 ls  /home/werdani/Desktop/DBMSE
 }
+
+function createt {
+read -p "enter name of table to create : " namecer
+touch $namecer /home/werdani/Desktop/DBMSE/$namee
+}
+
+function listt {
+echo "Your Table  : "
+ls /home/werdani/Desktop/DBMSE/$namee
+}
+
+function deletet {
+read -p "enter table name to delete : " nameta
+rm -i /home/werdani/Desktop/DBMSE/$namee/$nameta
+}
+# function insertint {}
+# function selectt {}
+# function deletefrom {}
+# function updatet {}
+
 
 function connectdb {
 read -p "enter database want to connect : " namee 
@@ -26,7 +48,11 @@ cd /home/werdani/Desktop/DBMSE/$namee
 select choice in "Create Table" "List Table" "Delete Table" "Insert Into Table" "Select From Table" "Delete From Table" "Update Table" "To Exit"
 do
 	case $choice in 
-		"Create Table") echo "welcom 😎"
+		"Create Table") createt
+			;;
+		"List Table") listt
+			;;
+		"Delete Table") deletet
 			;;
 		"To Exit") exit 
 			;;
