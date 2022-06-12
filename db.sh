@@ -1,11 +1,11 @@
 #! /bin/bash 
-echo " -------------------------"
-echo "| welcom in my database   |"
-echo " -------------------------"
+echo "😎😎😎😎😎😎😎😎😎😎😎😎😎😎"
+echo "😎 welcom in my database  😎"
+echo "😎😎😎😎😎😎😎😎😎😎😎😎😎😎"
 
 function creatdb {
 read -p "enter dbname : " name 
-mkdir ./DBMSE/$name 
+mkdir /home/werdani/Desktop/DBMSE/$name 
 if [[ $? == 0 ]]
 then 
 	echo "database $name created successfully"
@@ -16,33 +16,17 @@ fi
 }
 
 function listdb {
-ls  ./DBMSE/
+ls  /home/werdani/Desktop/DBMSE
 }
- 
-:'function creattb {
-read -p "enter table name " name
-touch ./DBMSE/$namee/$name
-if [ -F $name ]
-then
-echo "table $naem is existe"
-else 
-echo "table $name created successfully"
-fi
-}
-function listtb {}
-function deletetb {}
-function insertin {}
-function selectfrom {}
-function deletefrom {}
-function updatetb {}'
 
 function connectdb {
 read -p "enter database want to connect : " namee 
-cd ./DBMSE/$namee
+cd /home/werdani/Desktop/DBMSE/$namee
+
 select choice in "Create Table" "List Table" "Delete Table" "Insert Into Table" "Select From Table" "Delete From Table" "Update Table" "To Exit"
 do
 	case $choice in 
-		"Create Table") echo "welcom to create table "
+		"Create Table") echo "welcom 😎"
 			;;
 		"To Exit") exit 
 			;;
@@ -54,7 +38,7 @@ done
 }
 function dropdb {
 read -p "enter database to drop : " name 
-rm -ir ./DBMSE/$name
+rm -ir /home/werdani/Desktop/DBMSE/$name
 }
 select choice in "To CreateDB" "To ListDB" "To ConnectDB" "To DeleteDB" "To Exit"
 do 
