@@ -4,7 +4,7 @@ echo "| welcom in my database   |"
 echo " -------------------------"
 
 function creatdb {
-read -p "enter dbnaem : " name 
+read -p "enter dbname : " name 
 mkdir ./DBMSE/$name 
 if [[ $? == 0 ]]
 then 
