@@ -29,7 +29,27 @@ then
 	echo "this table $nameta already exist choose anothe name 😴"
 else 
 	touch $nameta /home/werdani/Desktop/DBMSE/$namee
-	echo "table  $nameta created successfully 😃"
+	read -p "enter number of columns : " numcol
+	if [ $numcol -gt 0 ]
+	then 
+		for (( i=0 ; i<$numcol ; i++ ));
+		do 
+			read -p "enter your field name : " fieldnum
+			echo -n $fieldnum: >> $nameta
+		done
+		echo >> $nameta
+		for (( i=0 ; i<$numcol ; i++ ));
+		do
+			read -p "enter your field type : " fieldtype
+			echo -n $fieldtype: >> $nameta
+		done
+			echo >> $nameta
+			echo "table created successfully 😃"
+		else
+			echo "invaled type"
+		fi
+		
+	
 fi
 }
 
@@ -53,14 +73,14 @@ fi
 # function deletefrom {}
 # function updatet {}
 
-
 function connectdb {
 read -p "enter database want to connect : " namee 
 cd /home/werdani/Desktop/DBMSE/$namee
 
-select choice in "Create Table" "List Table" "Delete Table" "Insert Into Table" "Select From Table" "Delete From Table" "Update Table" "To Exit"
+
+select choicee in "Create Table" "List Table" "Delete Table" "Insert Into Table" "Select From Table" "Delete From Table" "Update Table" "Main Menu" "To Exit"
 do
-	case $choice in 
+	case $choicee in 
 		"Create Table") createt
 			;;
 		"List Table") listt
@@ -68,6 +88,12 @@ do
 		"Delete Table") deletet
 			;;
 		"To Exit") exit 
+			;;
+		"Main Menu") cd ..
+			echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖"
+			echo "| You are now in the database menu |"
+			echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖"
+			break
 			;;
 		*) echo "not choice"
 			;;
