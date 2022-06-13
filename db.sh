@@ -1,8 +1,8 @@
 #! /bin/bash 
 PS3="enter your choice ▶ "
-echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖"
-echo "| welcom in my database   |"
-echo " ➖➖➖➖➖➖➖➖➖➖➖➖➖"
+echo " ➖➖➖➖➖➖➖➖➖➖➖"
+echo "| welcom in database   |"
+echo " ➖➖➖➖➖➖➖➖➖➖➖"
 
 function creatdb {
 read -p "enter dbname : " name 
@@ -22,8 +22,15 @@ ls  /home/werdani/Desktop/DBMSE
 }
 
 function createt {
-read -p "enter name of table to create : " namecer
-touch $namecer /home/werdani/Desktop/DBMSE/$namee
+echo "welcom to create table 😃"
+read -p "enter name of table to create : " nameta
+if [ -f $nameta ]
+then 
+	echo "this table $nameta already exist choose anothe name 😴"
+else 
+	touch $nameta /home/werdani/Desktop/DBMSE/$namee
+	echo "table  $nameta created successfully 😃"
+fi
 }
 
 function listt {
@@ -33,7 +40,13 @@ ls /home/werdani/Desktop/DBMSE/$namee
 
 function deletet {
 read -p "enter table name to delete : " nameta
-rm -i /home/werdani/Desktop/DBMSE/$namee/$nameta
+if [ -f $nameta ]
+then 
+	rm -i /home/werdani/Desktop/DBMSE/$namee/$nameta
+	echo "table deleted successfully ☺"
+else 
+	echo "this table not exixt 😴"
+fi
 }
 # function insertint {}
 # function selectt {}
