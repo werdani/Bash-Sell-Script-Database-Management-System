@@ -6,14 +6,14 @@ echo " ➖➖➖➖➖➖➖➖➖➖➖"
 
 function creatdb {
 read -p "enter dbname : " name 
-mkdir /home/werdani/Desktop/DBMSE/$name 
-if [[ $? == 0 ]]
+if [ -d "$name" ]
 then 
-	echo "database $name created successfully"
+	cd /home/werdani/Desktop/DBMSE/$name
+	echo "this database $name already exist "
 else 
-	echo "datebase $name error"
+	mkdir /home/werdani/Desktop/DBMSE/$name
+	echo "database $name created successfully"
 fi
-
 }
 
 function listdb {
@@ -102,8 +102,8 @@ done
 
 }
 function dropdb {
-read -p "enter database to drop : " name 
-rm -ir /home/werdani/Desktop/DBMSE/$name
+read -p "enter database to drop : " naame 
+rm -ir /home/werdani/Desktop/DBMSE/$naame
 }
 select choice in "To CreateDB" "To ListDB" "To ConnectDB" "To DeleteDB" "To Exit"
 do 
