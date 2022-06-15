@@ -65,13 +65,47 @@ then
 	rm -i /home/werdani/Desktop/DBMSE/$namee/$nameta
 	echo "table deleted successfully ☺"
 else 
-	echo "this table not exixt 😴"
+	echo "this table not exist 😴"
 fi
 }
-# function insertint {}
-# function selectt {}
-# function deletefrom {}
-# function updatet {}
+function insertint {
+read -p "enter table name to insert into  : " tname
+if [ -f $tname ]
+then 
+	echo "ok"
+	vi $tname
+	echo "inserted successfully ☺"
+else 
+	echo "this table not exist😴"
+fi
+}
+function selectt {
+read -p "enter table name to select from  : " sename
+if [ -f $sename ]
+then 
+	echo "weclcom"
+else
+	echo "this table not exist😴"
+fi
+}
+function deletefrom {
+read -p "enter table name to delete from  : " dename
+if [ -f $dename ]
+then 
+	echo "weclcom"
+else
+	echo "this table not exist😴"
+fi
+}
+function updatet {
+read -p "enter table name to update : " upname
+if [ -f $upname ]
+then 
+	echo "weclcom"
+else
+	echo "this table not exist😴"
+fi
+}
 
 function connectdb {
 read -p "enter database want to connect : " namee 
@@ -86,6 +120,14 @@ do
 		"List Table") listt
 			;;
 		"Delete Table") deletet
+			;;
+		"Insert Into Table") insertint
+			;;
+		"Select From Table") selectt
+			;;
+		"Delete From Table") deletefrom
+			;;
+		"Update Table") updatet
 			;;
 		"To Exit") exit 
 			;;
