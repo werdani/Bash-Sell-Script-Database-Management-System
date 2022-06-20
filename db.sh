@@ -8,16 +8,6 @@ DIR="/home/werdani/Desktop/DBMSE"
 
 # to create the datebase.
 function creatdb {
-<<<<<<< HEAD
-read -p "enter dbname : " name 
-if [ -d "$name" ]
-then 
-	cd /home/werdani/Desktop/DBMSE/$name
-	echo "this database $name already exist "
-else 
-	mkdir /home/werdani/Desktop/DBMSE/$name
-	echo "database $name created successfully"
-=======
 read -p "enter your database name : " name 
 
 if [ -d "/$DIR/$name" ]
@@ -27,7 +17,6 @@ else
 	mkdir /$DIR/$name 
 	echo "datebase $name created successfully 😃"
 			
->>>>>>> newdb
 fi
 }
 
@@ -198,10 +187,6 @@ fi
 
 # to delete a databse.
 function dropdb {
-<<<<<<< HEAD
-read -p "enter database to drop : " naame 
-rm -ir /home/werdani/Desktop/DBMSE/$naame
-=======
 read -p "enter database to drop : " namea 
 if [ -d "/$DIR/$namea" ]
 then
@@ -211,7 +196,6 @@ else
 	echo "database $name not exists." 
 	
 fi
->>>>>>> newdb
 }
 
 # the main menu for a database.
