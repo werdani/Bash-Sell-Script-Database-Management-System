@@ -54,14 +54,14 @@ else
 		echo >> $nameta
 		for (( i=0 ; i<$numcol ; i++ ));
 		do
-			read -p "enter your field number [$i] type : " fieldtype
+			read -p "enter your field type [$i] type : " fieldtype
 			if [ -z "$fieldtype" ]
                         then 
 				echo "please enter a value"
 				break
 			fi
 			
-			echo -n $fieldtype: >> $nameta
+			echo -n $fieldtype: >> $nameta #n to dont new line.
 		done
 			echo >> $nameta
 			echo "table created successfully 😃"
@@ -95,11 +95,31 @@ fi
 
 # to insert in the table.
 function insertint {
+
 read -p "enter table name to insert into  : " tname
 if [ -f $tname ]
 then 
-	echo "ok"
-	vi $tname
+	n=`awk -F: '{if(NR == 1) print NF}' $tname` #to print first line
+	awk -F: '{if(NR == 1) print $0}' $tname
+	
+	for (( i=1 ; i<$n ; i++ ));
+		do
+			read -p "enter your field data [$i] : " data
+			ids=`cut -d ':' -f1 $tname | grep "$data"`
+			echo $ids
+			if [[ "$ids" = "$data" ]]
+			then 
+				echo "you have this colum"
+				break
+			fi
+			if [ -z "$data" ]
+                        then 
+				echo "please enter a value"
+				break
+			fi
+			echo -n $data: >> $tname #n to not new line.
+		done
+			echo >> $tname
 	echo "inserted successfully ☺"
 else 
 	echo "this table not exist😴"
